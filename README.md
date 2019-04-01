@@ -8,6 +8,8 @@
 
 `npm install`
 
+`npm run prod`
+
 `copy .env.example .env`
 
 `php artisan key:generate `
