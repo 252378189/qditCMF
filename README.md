@@ -50,6 +50,9 @@
 `php artisan fast:truncate --drop` 删除所有基础表{需要先重新执行数据迁移,然后才能执行数据填充}
 
 
+后台体验地址:http://47.98.203.198/manage
+
+
 
 
 
