@@ -29,7 +29,7 @@
         data() {
             return {
                 page_name: '文章',
-                url: '/recovery/list',
+                url: '/recovery',
                 columns: [
                     {
                         prop: 'id',

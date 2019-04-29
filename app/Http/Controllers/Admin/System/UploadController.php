@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\System;
 
-use App\Http\Controllers\Base\BaseController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
  * @license  四川猪太帅科技公司 http://www.51zts.com
  * @link     接口文档链接
  */
-class UploadController extends BaseController
+class UploadController extends Controller
 {
     /**
      * 上传文件方法返回上传文件后的绝对URL链接地址

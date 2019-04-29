@@ -21,7 +21,7 @@ export const article_add = (data) => {
  */
 export const siteMap = () => {
     return axios.request({
-        url: '/site_map',
+        url: '/siteMap',
         method: 'get'
     })
 };
@@ -33,7 +33,7 @@ export const siteMap = () => {
  */
 export const clean = () => {
     return axios.request({
-        url: '/article/clean',
+        url: '/clean',
         method: 'get'
     })
 };
@@ -141,7 +141,7 @@ export const template_edit = (id, data) => {
  */
 export const template_getList = () => {
     return axios.request({
-        url: '/template/list',
+        url: '/template',
         method: 'get'
     })
 };
@@ -153,13 +153,13 @@ export const template_getList = () => {
  */
 export const category_List = () => {
     return axios.request({
-        url: '/category/list',
+        url: '/category',
         method: 'get'
     })
 };
 
 /**
- * 分类列表
+ * 删除分类
  *
  * @param id
  * @returns {*}
@@ -208,7 +208,7 @@ export const category_edit = (data, id) => {
  */
 export const recovery_article = (id) => {
     return axios.request({
-        url: '/recovery/recovery/'+id,
+        url: '/recovery/'+id+'/recovery',
         method: 'get'
     })
 };
@@ -221,8 +221,8 @@ export const recovery_article = (id) => {
  */
 export const recovery_del = (id) => {
     return axios.request({
-        url: '/recovery/del/'+id,
-        method: 'get'
+        url: '/recovery/'+id,
+        method: 'delete'
     })
 };
 

@@ -75,7 +75,7 @@
         data() {
             return {
                 page_name: '用户',
-                url: 'user/list',
+                url: 'user',
                 addFormVisible: false,
                 editFormVisible: false,
                 userGiveRoleVisible: false,

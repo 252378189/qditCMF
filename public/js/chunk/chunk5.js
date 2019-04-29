@@ -1828,6 +1828,7 @@ var NavEdit = function NavEdit(id, data) {
         method: 'put'
     });
 };
+
 /**
  * 删除导航信息
  * @param id

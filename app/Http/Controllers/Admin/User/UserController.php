@@ -2,30 +2,83 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Controllers\Base\BaseController;
+use App\Http\Controllers\Base\StatusCode;
+use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\RoleAndAuth;
 use App\Models\User;
 use App\Models\UserAndRole;
+use App\Traits\RestFul;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends BaseController
+class UserController extends Controller
 {
+    use RestFul;
 
-    protected $model = User::class;
+    /**
+     * 返回操作模型
+     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return User::class;
+    }
 
-    // 获取用户信息
+    /**
+     * 添加操作,字段认证规则
+     *
+     * @return array
+     */
+    public function addRule()
+    {
+        return[
+            'username' => 'required',
+            'password' => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required',
+            'avatar' => 'required',
+            'sex' => 'required',
+            'state' => 'nullable',
+            'options' => 'nullable',
+        ];
+    }
+
+    /**
+     * 修改操作,字段认证规则
+     *
+     * @return array
+     */
+    public function editRule()
+    {
+        return [
+            'username' => 'required',
+            'password' => 'nullable',
+            'phone' => 'required|numeric',
+            'email' => 'required',
+            'avatar' => 'required',
+            'sex' => 'required',
+            'state' => 'nullable',
+            'options' => 'nullable',
+        ];
+    }
+
+    /**
+     * 获取用户信息
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getUserInfo()
     {
         $user = Auth::user()->toArray();
         if ($user) {
             $user['auth'] = $this->getAuth(Auth::id());
             $user['access'] = $this->getAccess($user['auth']);
-            return response()->json(['code' => $this->StatusCode['success'], 'user' => $user]);
+            return $this->Json(StatusCode::SUCCESS, ['user' => $user]);
         } else {
-            return response()->json(['code' => $this->StatusCode['error'], 'msg' => '获取用户信息失败']);
+            return $this->Json(StatusCode::ERROR, ['msg' => '获取用户信息失败']);
         }
     }
 
@@ -80,56 +133,33 @@ class UserController extends BaseController
     /**
      * 添加用户
      *
-     * @param \Illuminate\Http\Request $request 请求体
-     *
      * @return \Illuminate\Http\JsonResponse
+     * @throws \App\Exceptions\FromVerif
      */
-    public function add(Request $request)
+    public function store()
     {
-        $validatedData = $request->validate(
-            [
-                'username' => 'required',
-                'password' => 'required',
-                'phone' => 'required|numeric',
-                'email' => 'required',
-                'avatar' => 'required',
-                'sex' => 'required',
-                'state' => 'nullable',
-                'options' => 'nullable',
-            ]
-        );
+        $validatedData = $this->formVerif($this->addRule());
         $validatedData['password'] = Hash::make($validatedData['password']);
-        $res = $this->model::create($validatedData);
-        return $this->returnMsg($res);
+        User::query()->create($validatedData);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
     /**
      * 修改用户信息
      *
-     * @param \Illuminate\Http\Request $request 请求体
-     * @param int                      $id      用户ID
+     * @param $id
      *
      * @return \Illuminate\Http\JsonResponse
+     * @throws \App\Exceptions\FromVerif
      */
-    public function edit(Request $request, $id)
+    public function update($id)
     {
-        $validatedData = $request->validate(
-            [
-                'username' => 'required',
-                'password' => 'nullable',
-                'phone' => 'required|numeric',
-                'email' => 'required',
-                'avatar' => 'required',
-                'sex' => 'required',
-                'state' => 'nullable',
-                'options' => 'nullable',
-            ]
-        );
+        $validatedData = $this->formVerif($this->editRule());
         if (array_key_exists('password', $validatedData)) {
             $validatedData['password'] = Hash::make($validatedData['password']);
         }
-        $res = $this->model::find($id)->update($validatedData);
-        return $this->returnMsg($res);
+        User::query()->find($id)->update($validatedData);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
     /**
@@ -141,9 +171,11 @@ class UserController extends BaseController
      */
     public function disable(Request $request)
     {
-        $res = $this->model::whereIn('id', $request->all())->update(['state' => 0]);
+        User::query()
+            ->whereIn('id', $request->all())
+            ->update(['state' => 0]);
 
-        return $this->returnMsg($res);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
     /**
@@ -161,9 +193,9 @@ class UserController extends BaseController
         foreach ($users['ids'] as $user) {
             //选择的角色名称
             foreach ($roles as $item) {
-                $roleId = Role::where('name', $item)->first(['id'])->id;
-                $userData = User::find($user);
-                $user_ids = UserAndRole::where('role_id', $roleId)->get()->pluck('user_id');
+                $roleId = Role::query()->where('name', $item)->first(['id'])->id;
+                $userData = User::query()->find($user);
+                $user_ids = UserAndRole::query()->where('role_id', $roleId)->get()->pluck('user_id');
                 //如果当前用户不拥有选择的角色
                 foreach ($user_ids as $uid) {
                     if ($uid != $userData->id) {
@@ -172,7 +204,7 @@ class UserController extends BaseController
                 }
             }
         }
-        return $this->returnMsg(true);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
     /**
@@ -184,12 +216,14 @@ class UserController extends BaseController
      */
     public function userRole($id)
     {
-        $roles = User::with('roles')->where('id', $id)->first()->roles->toArray();
+        $roles = User::with('roles')
+            ->where('id', $id)->first()
+            ->roles->toArray();
         $roleName = [];
         foreach ($roles as $item) {
             $roleName[] = $item['name'];
         }
-        return $this->returnData($roleName);
+        return $this->Json(StatusCode::SUCCESS, ['data' => $roleName]);
     }
 
     /**
@@ -202,10 +236,10 @@ class UserController extends BaseController
      */
     public function userEditRole(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = User::query()->find($id);
         $roles = $request->all();
-        $roleId = Role::whereIn('name', $roles)->get()->pluck('id');
-        $res = $user->roles()->sync($roleId);
-        return $this->returnMsg($res);
+        $roleId = Role::query()->whereIn('name', $roles)->get()->pluck('id');
+        $user->roles()->sync($roleId);
+        return $this->Json(StatusCode::SUCCESS);
     }
 }

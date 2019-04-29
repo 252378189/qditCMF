@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin\User;
 
 
-use App\Http\Controllers\Base\BaseController;
+use App\Http\Controllers\Base\StatusCode;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Services\Login\LoginService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends BaseController
+class LoginController extends Controller
 {
     /**
      * 用户登录
@@ -22,22 +23,23 @@ class LoginController extends BaseController
      */
     public function login(Request $request, LoginService $login)
     {
-        $this->formVerif($request, [
+        $this->formVerif([
             'phone' => 'required|size:11',
             'password' => 'required|string|min:6',
         ]);
         $response = $login->login($request->get('type', 'normal'));
-        return response()->json($response);
+        return $this->Json(StatusCode::SUCCESS, $response);
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function logout(Request $request)
+    public function logout()
     {
         User::query()->where('id', Auth::id())->update([
             'token' => null
         ]);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
 }

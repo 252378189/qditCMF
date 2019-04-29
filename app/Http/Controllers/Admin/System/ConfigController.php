@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin\System;
 
-use App\Http\Controllers\Base\BaseController;
+use App\Http\Controllers\Base\StatusCode;
+use App\Http\Controllers\Controller;
 use App\Models\ConfigModel;
 use Illuminate\Http\Request;
 
-class ConfigController extends BaseController
+class ConfigController extends Controller
 {
 
     /**
@@ -79,7 +80,7 @@ class ConfigController extends BaseController
      */
     public function updateOrCreate(Request $request)
     {
-        $res = ConfigModel::query()->updateOrCreate([
+        ConfigModel::query()->updateOrCreate([
             'keyword' => $request->keyword,
         ], [
             'pid' => $request->input('pid', 0),
@@ -88,6 +89,6 @@ class ConfigController extends BaseController
             'value' => $request->value,
             'desc' => $request->input('desc', '没有描述')
         ]);
-        return $this->returnMsg($res);
+        return $this->Json(StatusCode::SUCCESS);
     }
 }

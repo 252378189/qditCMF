@@ -1600,7 +1600,7 @@ var data = {
     /**
      * @description 性别
      */
-    sex: [{ key: 1, value: '男' }, { key: 2, value: '女' }, { key: 0, value: '未填写' }],
+    sex: [{ key: 1, value: '男' }, { key: 0, value: '女' }],
     /**
      * @description 用户类型
      */
@@ -11641,7 +11641,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             page_name: '权限',
-            url: 'auth/list',
+            url: 'auth',
             addFormVisible: false,
             editFormVisible: false,
             columns: [{
@@ -11932,7 +11932,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         Object(__WEBPACK_IMPORTED_MODULE_1__api_app__["c" /* getSystemMenu */])().then(function (response) {
-            _this.menu_list = _this.makeTree(response.data);
+            _this.menu_list = _this.makeTree(response.data.data);
         });
     },
 
@@ -13484,7 +13484,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         this.handleGetData(Object(__WEBPACK_IMPORTED_MODULE_1__api_app__["c" /* getSystemMenu */])()).then(function (response) {
-            _this.menu_list = _this.makeTree(response);
+            _this.menu_list = _this.makeTree(response.data);
         });
         Object(__WEBPACK_IMPORTED_MODULE_0__api_user__["l" /* editAuthCreate */])(this.id).then(function (response) {
             //得到显示路径 与数据

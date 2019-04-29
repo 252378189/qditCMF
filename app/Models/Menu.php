@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
  */
 class Menu extends Model
 {
+
     // 批量赋值黑名单
     protected $guarded = [];
 

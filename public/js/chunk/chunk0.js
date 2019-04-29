@@ -47687,6 +47687,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.article_total = response.data.data.article_total;
 
             _this.submit = response.data.data.submit;
+            _this.echarts1_option.series[0].data = [response.data.data.monday, response.data.data.tuesday, response.data.data.wednesday, response.data.data.thursday, response.data.data.friday, response.data.data.saturday, response.data.data.sunday];
             // 基于准备好的dom，初始化echarts实例   
             var myChart = __WEBPACK_IMPORTED_MODULE_0_echarts___default.a.init(document.getElementById('echartss'));
             // 绘制图表，this.echarts1_option是数据     

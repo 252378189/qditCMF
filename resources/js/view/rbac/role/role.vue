@@ -56,7 +56,7 @@
         data() {
             return {
                 page_name: '角色',
-                url: '/role/list',
+                url: '/role',
                 addFormVisible: false,
                 editFormVisible: false,
                 GiveAuthFormVisible:false,

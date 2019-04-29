@@ -18,7 +18,7 @@ export const getSystemMenu = () => {
 };
 export const getParent = (id) => {
     return axios.request({
-        url: 'menu/parent/'+id,
+        url: 'menu/'+id+'/parent',
         method: 'get'
     })
 };

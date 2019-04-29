@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Article;
 
-use App\Http\Controllers\Base\BaseController;
+use App\Http\Controllers\Base\StatusCode;
+use App\Http\Controllers\Controller;
 use App\Models\Article;
-use Illuminate\Http\Request;
+use App\Traits\RestFul;
 use App\Models\ArticleTemplate as Template;
 
 /**
@@ -18,50 +19,44 @@ use App\Models\ArticleTemplate as Template;
  * @license  四川猪太帅科技公司 http://www.51zts.com
  * @link     接口文档链接
  */
-class ArticleTemplate extends BaseController
+class ArticleTemplate extends Controller
 {
-    /**
-     * 设置模型
-     *
-     * @var string
-     */
-    protected $model = Template::class;
+    use RestFul;
 
     /**
-     * 添加模板
+     * 返回操作模型
      *
-     * @param \Illuminate\Http\Request $request 请求体
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \App\Exceptions\FromVerif
+     * @return string
      */
-    public function add(Request $request)
+    public function getModel()
     {
-        $filedValue = $this->formVerif($request, [
-            'name' => 'required',
-            'path' => 'required',
-        ]);
-        $res = $this->model::query()->create($filedValue);
-        return $this->returnMsg($res);
+        return Template::class;
     }
 
     /**
-     * 编辑模板信息
+     * 添加操作字段认证规则
      *
-     * @param \Illuminate\Http\Request $request
-     * @param   integer                $id 模板id
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \App\Exceptions\FromVerif
+     * @return array
      */
-    public function edit(Request $request, $id)
+    public function addRule()
     {
-        $filedValue = $this->formVerif($request, [
+        return [
             'name' => 'required',
             'path' => 'required',
-        ]);
-        $res = $this->model::query()->where('id', $id)->update($filedValue);
-        return $this->returnMsg($res);
+        ];
+    }
+
+    /**
+     * 修改字段认证规则
+     *
+     * @return array
+     */
+    public function editRule()
+    {
+        return [
+            'name' => 'required',
+            'path' => 'required',
+        ];
     }
 
     /**
@@ -71,10 +66,10 @@ class ArticleTemplate extends BaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function delete($id)
+    public function destroy($id)
     {
         if ($id == 1) {
-            return $this->returnMsg(false, '默认模板不允许删除,删除');
+            return $this->Json(StatusCode::ERROR, ['msg' => '默认模板不允许删除']);
         }
         $result = Article::query()
             ->where('template_id', $id)
@@ -86,7 +81,7 @@ class ArticleTemplate extends BaseController
                 ->where('template_id', $id)
                 ->update(['template_id' => 1]);
         }
-        $res = $this->model::destroy($id);
-        return $this->returnMsg($res);
+        Template::destroy($id);
+        return $this->Json(StatusCode::SUCCESS);
     }
 }

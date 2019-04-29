@@ -74,7 +74,7 @@
         },
         created(){
           getSystemMenu().then((response)=>{
-              this.menu_list =  this.makeTree(response.data);
+              this.menu_list =  this.makeTree(response.data.data);
             });
 
         },

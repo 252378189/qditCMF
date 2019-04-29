@@ -50,7 +50,7 @@
         data() {
             return {
                 page_name: '菜单',
-                url: 'menu/list',
+                url: 'menu',
                 addData:{id:0,name:"顶级分类"},
                 addFormVisible: false,
                 editFormVisible: false,
@@ -116,7 +116,7 @@
                 }else if (type == 'add'){
                     this.handleAdd({id:row.id,name:row.name});
                 }else if (type == 'delete') {
-                    axios.get('menu/del/'+row.id).then((res) => {
+                    axios.delete('menu/'+row.id).then((res) => {
                         this.$message.success('删除成功');
                         this.handleRenderTable();
                     }).catch((error) => {
@@ -133,7 +133,7 @@
                 console.log(this.handleGetSelection())
             },
             HandleGetChildren(row){
-                axios.get('menu/children/'+row.id)
+                axios.get('menu/'+row.id+'/children')
                     .then((res) => {
                         this.handleSetChild(row,res.data.data)
                     });

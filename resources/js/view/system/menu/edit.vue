@@ -66,7 +66,7 @@
         },
         methods: {
             onSubmit() {
-                this.handleSubmit(menu_edit(this.form))
+                this.handleSubmit(menu_edit(this.form.id, this.form))
             },
         }
     }

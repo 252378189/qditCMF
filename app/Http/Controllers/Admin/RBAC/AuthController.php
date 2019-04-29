@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin\RBAC;
 
+use App\Http\Controllers\Base\StatusCode;
 use App\Models\Auth;
 use App\Models\Menu;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Base\BaseController;
+use App\Traits\RestFul;
+use App\Http\Controllers\Controller;
 
 /**
  * 权限控制器
@@ -18,45 +19,28 @@ use App\Http\Controllers\Base\BaseController;
  * @license  四川猪太帅科技公司 http://www.51zts.com
  * @link     接口文档链接
  */
-class AuthController extends BaseController
+class AuthController extends Controller
 {
-    protected $model = Auth::class;
+    use RestFul;
 
     /**
-     * 添加权限
+     * 返回操作模型
      *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \App\Exceptions\FromVerif
+     * @return string
      */
-    public function add(Request $request)
+    public function getModel()
     {
-        $field = $this->formVerif($request, [
-            'menu_id' => 'required|numeric',
-            "name" => 'required',
-            "description" => 'nullable',
-            "keyword" => 'required',
-            "sort" => 'nullable|numeric',
-            "type" => 'nullable|numeric',
-            "extented" => 'nullable',
-        ]);
-        $res = $this->model::create($field);
-        return $this->returnMsg($res);
+        return Auth::class;
     }
 
     /**
-     * 修改操作
+     * 添加操作,字段认证规则
      *
-     * @param                          $id
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \App\Exceptions\FromVerif
+     * @return array
      */
-    public function edit($id, Request $request)
+    public function addRule()
     {
-        $field = $this->formVerif($request, [
+        return [
             'menu_id' => 'required|numeric',
             "name" => 'required',
             "description" => 'nullable',
@@ -64,9 +48,25 @@ class AuthController extends BaseController
             "sort" => 'nullable|numeric',
             "type" => 'nullable|numeric',
             "extented" => 'nullable',
-        ]);
-        $res = $this->model::where('id', $id)->update($field);
-        return $this->returnMsg($res);
+        ];
+    }
+
+    /**
+     * 修改操作,字段认证规则
+     *
+     * @return array
+     */
+    public function editRule()
+    {
+        return [
+            'menu_id' => 'required|numeric',
+            "name" => 'required',
+            "description" => 'nullable',
+            "keyword" => 'required',
+            "sort" => 'nullable|numeric',
+            "type" => 'nullable|numeric',
+            "extented" => 'nullable',
+        ];
     }
 
     /**
@@ -91,7 +91,7 @@ class AuthController extends BaseController
                 return $value;
             }
         );
-        return $this->returnData($tree);
+        return $this->Json(StatusCode::SUCCESS, ['data'=> $tree]);
     }
 
 }

@@ -79,7 +79,7 @@
         props:['id'],
         created(){
             this.handleGetData(getSystemMenu()).then((response)=>{
-                this.menu_list =  this.makeTree(response);
+                this.menu_list =  this.makeTree(response.data);
             });
             editAuthCreate(this.id).then((response)=>{
                 //得到显示路径 与数据

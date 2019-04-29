@@ -42,7 +42,7 @@
         data() {
             return {
                 page_name: '权限',
-                url: 'auth/list',
+                url: 'auth',
                 addFormVisible: false,
                 editFormVisible: false,
                 columns: [

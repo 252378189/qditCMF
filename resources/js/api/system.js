@@ -1,31 +1,53 @@
 import axios from '@/libs/axios';
 
+/**
+ * 添加菜单
+ *
+ * @param data
+ * @returns {*}
+ */
 export const menu_add = (data) => {
     return axios.request({
-        url: '/menu/add',
+        url: '/menu',
         data,
         method: 'post'
     })
 };
-export const menu_edit = (data) => {
+
+/**
+ * 菜单修改
+ *
+ * @param data
+ * @returns {*}
+ */
+export const menu_edit = (id, data) => {
     return axios.request({
-        url: '/menu/edit',
+        url: '/menu/'+id,
         data,
-        method: 'post'
+        method: 'put'
     })
 };
+
+/**
+ * 菜单信息
+ *
+ * @param id
+ * @returns {*}
+ */
 export const menu_detail = (id) => {
     return axios.request({
         url: '/menu/' + id,
         method: 'get'
     })
 };
+
 export const config_get = (keyword) => {
     return axios.request({
         url: '/config?keyword=' + keyword,
         method: 'get'
     })
 };
+
 export const configUpdateOrCreate = (data) => {
     return axios.request({
         url: '/config/updateOrCreate',
@@ -33,6 +55,7 @@ export const configUpdateOrCreate = (data) => {
         method: 'post'
     })
 };
+
 export const config_add = (data) => {
     return axios.request({
         url: '/config',
@@ -40,6 +63,7 @@ export const config_add = (data) => {
         method: 'post'
     })
 };
+
 export const config_update = (id, data) => {
     return axios.request({
         url: '/config/' + id,
@@ -47,8 +71,6 @@ export const config_update = (id, data) => {
         method: 'put'
     })
 };
-
-
 
 /**
  * 清除缓存
@@ -69,7 +91,7 @@ export const clean = () => {
  */
 export const sitemap = () => {
     return axios.request({
-        url: '/sitemap',
+        url: '/siteMap',
         method: 'get'
     })
 };

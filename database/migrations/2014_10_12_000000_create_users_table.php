@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique()->comment('手机号码');
             $table->string('email')->nullable()->comment('邮箱');
             $table->string('avatar')->nullable()->comment('用户头像');
-            $table->tinyInteger('sex')->default(0)->comment('用户性别:{0:未填写,1:男,2:女}');
+            $table->tinyInteger('sex')->default(0)->comment('用户性别:{1:男,0:女}');
             $table->tinyInteger('state')->default(1)->comment('用户状态：{0:禁用,1:正常}');
             $table->text('options')->nullable()->comment('个人信息配置');
             $table->string('token')->nullable()->comment('用户登录token');

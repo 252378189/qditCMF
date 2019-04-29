@@ -441,32 +441,54 @@ module.exports = function listToStyles (parentId, list) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__libs_axios__ = __webpack_require__(26);
 
 
+/**
+ * 添加菜单
+ *
+ * @param data
+ * @returns {*}
+ */
 var menu_add = function menu_add(data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/menu/add',
+        url: '/menu',
         data: data,
         method: 'post'
     });
 };
-var menu_edit = function menu_edit(data) {
+
+/**
+ * 菜单修改
+ *
+ * @param data
+ * @returns {*}
+ */
+var menu_edit = function menu_edit(id, data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/menu/edit',
+        url: '/menu/' + id,
         data: data,
-        method: 'post'
+        method: 'put'
     });
 };
+
+/**
+ * 菜单信息
+ *
+ * @param id
+ * @returns {*}
+ */
 var menu_detail = function menu_detail(id) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/menu/' + id,
         method: 'get'
     });
 };
+
 var config_get = function config_get(keyword) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/config?keyword=' + keyword,
         method: 'get'
     });
 };
+
 var configUpdateOrCreate = function configUpdateOrCreate(data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/config/updateOrCreate',
@@ -474,6 +496,7 @@ var configUpdateOrCreate = function configUpdateOrCreate(data) {
         method: 'post'
     });
 };
+
 var config_add = function config_add(data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/config',
@@ -481,6 +504,7 @@ var config_add = function config_add(data) {
         method: 'post'
     });
 };
+
 var config_update = function config_update(id, data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/config/' + id,
@@ -508,7 +532,7 @@ var clean = function clean() {
  */
 var sitemap = function sitemap() {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/sitemap',
+        url: '/siteMap',
         method: 'get'
     });
 };

@@ -2,50 +2,63 @@
 
 namespace App\Http\Controllers\Admin\System;
 
-use App\Http\Controllers\Base\BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\SEO;
-use Illuminate\Http\Request;
+use App\Traits\RestFul;
 
-class SEOController extends BaseController
+/**
+ * 页面SEO信息控制器
+ *
+ * Class SEOController
+ *
+ * @category SEOController
+ * @package  App\Http\Controllers\Admin\System
+ * @author   ALG <513051043@qq.com>
+ * @license  四川猪太帅科技公司 http://www.51zts.com
+ * @link     接口文档链接
+ */
+class SEOController extends Controller
 {
-    protected $model = SEO::class;
+
+    use RestFul;
 
     /**
-     * 添加信息
+     * 返回操作模型
      *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \App\Exceptions\FromVerif
+     * @return string
      */
-    public function add(Request $request){
-        $fileValue = $this->formVerif($request, [
-            'name' => 'required',
-            'desc' => 'nullable',
-            'keywords' => 'nullable',
-            'title' => 'nullable',
-        ]);
-        $res = $this->model::create($fileValue);
-        return $this->returnMsg($res);
+    public function getModel()
+    {
+        return SEO::class;
     }
 
     /**
-     * 修改信息
+     * 添加操作,字段认证规则
      *
-     * @param \Illuminate\Http\Request $request
-     * @param                          $id
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \App\Exceptions\FromVerif
+     * @return array
      */
-    public function edit(Request $request, $id){
-        $fileValue = $this->formVerif($request, [
+    public function addRule()
+    {
+        return [
             'name' => 'required',
             'desc' => 'nullable',
             'keywords' => 'nullable',
             'title' => 'nullable',
-        ]);
-        $res = $this->model::find($id)->update($fileValue);
-        return $this->returnMsg($res);
+        ];
+    }
+
+    /**
+     * 修改操作,字段认证规则
+     *
+     * @return array
+     */
+    public function editRule()
+    {
+        return[
+            'name' => 'required',
+            'desc' => 'nullable',
+            'keywords' => 'nullable',
+            'title' => 'nullable',
+        ];
     }
 }

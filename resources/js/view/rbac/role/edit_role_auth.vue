@@ -46,11 +46,10 @@
             getRoleHasAuth(this.id).then((response)=>{
                 //渲染默认选中项
                 let data = [];
-                for (let x of response.data.data.menu){
+                for (let x of response.data.menu){
                     data.push('menu'+x.menu_id)
                 }
-                for (let x of response.data.data.auth){
-                    console.log(response.data.data.auth,456);
+                for (let x of response.data.auth){
                     data.push('auth'+x.auth_id);
                     //这里传入角色拥有的权限做默认会显
                     this.selectValue[x.auth_id] = x.extented;
@@ -62,6 +61,7 @@
 
         },
         methods: {
+
             /**
              * 组装菜单与权限树形结构
              * @param data 源数据

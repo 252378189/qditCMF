@@ -9,8 +9,7 @@ const data = {
      */
     sex: [
         {key: 1, value: '男'},
-        {key: 2, value: '女'},
-        {key: 0, value: '未填写'}
+        {key: 0, value: '女'},
     ],
     /**
      * @description 用户类型

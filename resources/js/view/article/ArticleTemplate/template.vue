@@ -43,7 +43,7 @@
         data() {
             return {
                 page_name: '模板',
-                url: 'template/list',
+                url: 'template',
                 addFormVisible: false,
                 editFormVisible: false,
                 columns: [

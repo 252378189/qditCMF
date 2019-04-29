@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/base.css">
-    <title>证书圈子web端后台管理系统</title>
+    <title>驱动IT网站快速扩展模板</title>
     <style>
         body{
             margin: 0;

@@ -1,7 +1,7 @@
 <template>
     <el-container style="height: 100%;">
         <el-header>
-            <div class="logo">证书圈子web端后台管理</div>
+            <div class="logo">网站快速扩建模板</div>
             <!--<el-switch v-model="isCollapse"></el-switch>-->
             <el-dropdown trigger="hover" style="float: right;color: #fff;" @command="handleCommand">
                 <span class="el-dropdown-link">
@@ -9,15 +9,18 @@
                 </span>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item command="clear">清除缓存</el-dropdown-item>
-                    <el-dropdown-item command="sitemap">网站地图</el-dropdown-item>
+                    <el-dropdown-item command="siteMap">网站地图</el-dropdown-item>
                     <el-dropdown-item command="logout">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
+
             <div class="avator" style="display: inline-block;float: right;">
                 <img style="padding: 10px;display: block; width: 40px;height: 40px;border-radius: 30px;"
                      :src="this.$store.state.user.avatar" alt="">
             </div>
+
         </el-header>
+
         <el-container>
             <!--左侧导航-->
             <el-aside :width="asideWidth">
@@ -148,7 +151,7 @@
                     clean().then(response => {
                         this.$message.success(response.data.msg);
                     })
-                } else if (command == 'sitemap') {
+                } else if (command == 'siteMap') {
                     sitemap().then(response => {
                         this.$message.success(response.data.msg);
                     })

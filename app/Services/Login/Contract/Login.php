@@ -58,11 +58,11 @@ abstract class Login
             ->where($type . "_openid", $openId)
             ->first();
         if (is_null($user)) {
-            return $this->responseErrorMsg($type, $openId);
+            return $this->loginError($type, $openId);
         }
-        if (!empty($this->UserModelLogin($user))) {
-            return $this->responseSuccessMsg($type);
-        }
+
+       return $this->loginSuccess($type);
+
     }
 
     /**
@@ -72,7 +72,7 @@ abstract class Login
      *
      * @return array
      */
-    public function responseSuccessMsg($type)
+    public function loginSuccess($type)
     {
         return [
             'msg' => '登陆成功',
@@ -91,7 +91,7 @@ abstract class Login
      *
      * @return array
      */
-    public function responseErrorMsg($type, $openId)
+    public function loginError($type, $openId)
     {
         return [
             'code' => -3,
@@ -112,7 +112,7 @@ abstract class Login
     public function UserModelLogin($user, $password)
     {
         if ($user->password == md5($password)) {
-            return $this->responseSuccessMsg('normal');
+            return $this->loginSuccess('normal');
         } else {
             return [
                 'code' => -4,

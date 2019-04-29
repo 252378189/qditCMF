@@ -1600,32 +1600,54 @@ var list_page = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__libs_axios__ = __webpack_require__(26);
 
 
+/**
+ * 添加菜单
+ *
+ * @param data
+ * @returns {*}
+ */
 var menu_add = function menu_add(data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/menu/add',
+        url: '/menu',
         data: data,
         method: 'post'
     });
 };
-var menu_edit = function menu_edit(data) {
+
+/**
+ * 菜单修改
+ *
+ * @param data
+ * @returns {*}
+ */
+var menu_edit = function menu_edit(id, data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/menu/edit',
+        url: '/menu/' + id,
         data: data,
-        method: 'post'
+        method: 'put'
     });
 };
+
+/**
+ * 菜单信息
+ *
+ * @param id
+ * @returns {*}
+ */
 var menu_detail = function menu_detail(id) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/menu/' + id,
         method: 'get'
     });
 };
+
 var config_get = function config_get(keyword) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/config?keyword=' + keyword,
         method: 'get'
     });
 };
+
 var configUpdateOrCreate = function configUpdateOrCreate(data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/config/updateOrCreate',
@@ -1633,6 +1655,7 @@ var configUpdateOrCreate = function configUpdateOrCreate(data) {
         method: 'post'
     });
 };
+
 var config_add = function config_add(data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/config',
@@ -1640,6 +1663,7 @@ var config_add = function config_add(data) {
         method: 'post'
     });
 };
+
 var config_update = function config_update(id, data) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
         url: '/config/' + id,
@@ -1667,7 +1691,7 @@ var clean = function clean() {
  */
 var sitemap = function sitemap() {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/sitemap',
+        url: '/siteMap',
         method: 'get'
     });
 };
@@ -1739,7 +1763,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             page_name: '菜单',
-            url: 'menu/list',
+            url: 'menu',
             addData: { id: 0, name: "顶级分类" },
             addFormVisible: false,
             editFormVisible: false,
@@ -1803,7 +1827,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else if (type == 'add') {
                 this.handleAdd({ id: row.id, name: row.name });
             } else if (type == 'delete') {
-                __WEBPACK_IMPORTED_MODULE_4__libs_axios__["a" /* default */].get('menu/del/' + row.id).then(function (res) {
+                __WEBPACK_IMPORTED_MODULE_4__libs_axios__["a" /* default */].delete('menu/' + row.id).then(function (res) {
                     _this2.$message.success('删除成功');
                     _this2.handleRenderTable();
                 }).catch(function (error) {
@@ -1824,7 +1848,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         HandleGetChildren: function HandleGetChildren(row) {
             var _this3 = this;
 
-            __WEBPACK_IMPORTED_MODULE_4__libs_axios__["a" /* default */].get('menu/children/' + row.id).then(function (res) {
+            __WEBPACK_IMPORTED_MODULE_4__libs_axios__["a" /* default */].get('menu/' + row.id + '/children').then(function (res) {
                 _this3.handleSetChild(row, res.data.data);
             });
         },
@@ -2347,7 +2371,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         onSubmit: function onSubmit() {
-            this.handleSubmit(Object(__WEBPACK_IMPORTED_MODULE_0__api_system__["f" /* menu_edit */])(this.form));
+            this.handleSubmit(Object(__WEBPACK_IMPORTED_MODULE_0__api_system__["f" /* menu_edit */])(this.form.id, this.form));
         }
     }
 });

@@ -1,36 +1,31 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ALG
- * Date: 2019/3/28
- * Time: 9:47
- */
 
-namespace App\Http\Controllers\Base;
+namespace App\Http\Controllers;
 
 use App\Models\ConfigModel;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Validator;
+use App\Exceptions\FromVerif;
 
-/**
- * 前端基础控制器
- *
- * Class HomeBaseController
- *
- * @category HomeBaseController
- * @package  App\Http\Controllers\Base
- * @author   ALG <513051043@qq.com>
- * @license  四川猪太帅科技公司 http://www.51zts.com
- * @link     接口文档链接
- */
-class HomeBaseController extends BaseController
+class Controller extends BaseController
 {
-    /*
-     * 缓存前缀
-     */
-    protected $cache_prefix = 'app_web:';
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /*
+    /**
+     * 缓存前缀
+     *
+     * @var string
+     */
+    protected $cache_prefix = 'qditCMF:';
+
+    /**
      * 缓存时间
+     *
+     * @var string
      */
     protected $cache_time = '900';
 
@@ -75,5 +70,38 @@ class HomeBaseController extends BaseController
     public function getConfig($cacheName, $keyword)
     {
         return $this->baseCachePolicy(new ConfigModel(), $cacheName, ['keyword' => $keyword]);
+    }
+
+    /**
+     * 自定义验证规则
+     *
+     * @param array $rule 验证规则
+     *
+     * @return array 返回验证的数据
+     * @throws \App\Exceptions\FromVerif 如果验证失败抛出异常
+     */
+    public function formVerif($rule){
+        //验证提交数据
+        $validator = Validator::make(request()->all(), $rule);
+        //如果验证出错返回验证错误数据的第一条
+        if ($validator->fails()) {
+            throw  new FromVerif($validator->errors()->first());
+        }
+        return $validator->validate();
+    }
+
+
+    /**
+     * 返回Json
+     *
+     * @param array $status
+     * @param array $data
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function Json(array $status, array $data = [])
+    {
+        $json = array_merge($status, $data);
+        return response()->json($json);
     }
 }

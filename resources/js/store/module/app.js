@@ -25,16 +25,19 @@ export default {
     },
     actions: {
         // 获取首页菜单，保存到store
-        handleGetMenu({ commit }){
+        handleGetMenu({state}) {
             return new Promise((resolve, reject) => {
-                getMenu().then(res => {
-                    const data = res.data;
-                    let list = handleGetMenuList(data);
-                    commit('setMenu', {tree:data,list:list});
-                    resolve(data)
-                }).catch(err => {
-                    reject(err)
-                })
+                if (state.menus == null) {
+                    getMenu().then(res => {
+                        const data = res.data.data;
+                        state.menus = data;
+                        resolve(data)
+                    }).catch(err => {
+                        reject(err)
+                    })
+                } else {
+                    resolve(state.menus)
+                }
             })
         },
         // 获取基础数据

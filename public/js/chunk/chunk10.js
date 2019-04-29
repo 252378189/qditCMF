@@ -1529,7 +1529,7 @@ var article_add = function article_add(data) {
  */
 var siteMap = function siteMap() {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/site_map',
+        url: '/siteMap',
         method: 'get'
     });
 };
@@ -1541,7 +1541,7 @@ var siteMap = function siteMap() {
  */
 var clean = function clean() {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/article/clean',
+        url: '/clean',
         method: 'get'
     });
 };
@@ -1649,7 +1649,7 @@ var template_edit = function template_edit(id, data) {
  */
 var template_getList = function template_getList() {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/template/list',
+        url: '/template',
         method: 'get'
     });
 };
@@ -1661,13 +1661,13 @@ var template_getList = function template_getList() {
  */
 var category_List = function category_List() {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/category/list',
+        url: '/category',
         method: 'get'
     });
 };
 
 /**
- * 分类列表
+ * 删除分类
  *
  * @param id
  * @returns {*}
@@ -1716,7 +1716,7 @@ var category_edit = function category_edit(data, id) {
  */
 var recovery_article = function recovery_article(id) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/recovery/recovery/' + id,
+        url: '/recovery/' + id + '/recovery',
         method: 'get'
     });
 };
@@ -1729,8 +1729,8 @@ var recovery_article = function recovery_article(id) {
  */
 var recovery_del = function recovery_del(id) {
     return __WEBPACK_IMPORTED_MODULE_0__libs_axios__["a" /* default */].request({
-        url: '/recovery/del/' + id,
-        method: 'get'
+        url: '/recovery/' + id,
+        method: 'delete'
     });
 };
 
@@ -1818,7 +1818,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             page_name: '文章',
-            url: '/recovery/list',
+            url: '/recovery',
             columns: [{
                 prop: 'id',
                 label: 'ID',

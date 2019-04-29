@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Admin\RBAC;
 
+use App\Http\Controllers\Base\StatusCode;
+use App\Models\RoleAndMenu;
 use App\Models\Role;
 use App\Models\RoleAndAuth;
+use App\Traits\Filter;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Base\BaseController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 /**
+ * 角色管理控制器
+ *
  * Class RoleController
  *
  * @category RoleController
@@ -18,57 +23,86 @@ use Illuminate\Support\Facades\Log;
  * @license  四川猪太帅科技公司 http://www.51zts.com
  * @link     接口文档链接
  */
-class RoleController extends BaseController
+class RoleController extends Controller
 {
-    protected $model = Role::class;
+    use Filter;
 
     /**
      * 添加角色
      *
-     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\JsonResponse
      * @throws \App\Exceptions\FromVerif
      */
-    public function add(Request $request)
+    public function store()
     {
-        $field = $this->formVerif($request, [
+        $field = $this->formVerif([
             'name' => 'required|max:255',
             'description' => 'nullable',
             'sort' => 'nullable',
             'state' => 'nullable',
         ]);
-        $res = $this->model::create($field);
-        return $this->returnMsg($res);
+        Role::query()->create($field);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
-    public function get($id)
+    /**
+     * 角色信息
+     *
+     * @param $id
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show($id)
     {
         $data = Role::with('HasAuth')->find($id);
-        return $this->returnData($data);
+        return $this->Json(StatusCode::SUCCESS, ['data'=>$data]);
     }
 
     /**
      * 修改角色信息
      *
-     * @param \Illuminate\Http\Request $request
      * @param                          $id
      *
      * @return \Illuminate\Http\JsonResponse
      * @throws \App\Exceptions\FromVerif
      */
-    public function edit(Request $request, $id)
+    public function update($id)
     {
-        $field = $this->formVerif($request, [
+        $field = $this->formVerif([
             'name' => 'required|max:255',
             'description' => 'nullable',
             'sort' => 'nullable',
             'state' => 'nullable',
         ]);
-        $res = $this->model::find($id)->update($field);
+        Role::query()->find($id)->update($field);
         //所有关联权限状态也跟着同步
-        $res = RoleAndAuth::where('role_id', $id)->update(['state' => $field['state']]);
-        return $this->returnMsg($res);
+        RoleAndAuth::query()->where('role_id', $id)->update(['state' => $field['state']]);
+        return $this->Json(StatusCode::SUCCESS);
+    }
+
+    /**
+     * 角色列表
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
+    {
+        $data =  $this->filter(Role::query());
+        return $this->Json(StatusCode::SUCCESS, $data);
+    }
+
+    /**
+     * 删除角色
+     *
+     * @param $id
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id)
+    {
+        Role::destroy($id);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
     /**
@@ -81,34 +115,35 @@ class RoleController extends BaseController
     public function disable(Request $request)
     {
         //状态设置为禁用
-        $this->model::query()->whereIn('id', $request->all())->update(['state' => Role::DISABLE]);
+        Role::query()->whereIn('id', $request->all())->update(['state' => Role::DISABLE]);
         //所有关联权限状态也设置为禁用
-        $res = RoleAndAuth::query()->whereIn('role_id', $request->all())->update(['state' => Role::DISABLE]);
-        return $this->returnMsg($res);
+        RoleAndAuth::query()->whereIn('role_id', $request->all())->update(['state' => Role::DISABLE]);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
     /**
      * 给角色信息赋予权限
      *
-     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\JsonResponse
      * @throws \App\Exceptions\FromVerif
      */
-    public function GiveAuth(Request $request)
+    public function GiveAuth()
     {
-        $validatedData = $this->formVerif($request, [
+        $validatedData = $this->formVerif([
             'roles' => 'required',
             'menu' => 'required',
             'auth' => 'nullable',
         ]);
         $roles = $validatedData['roles'];
         $auths = $validatedData['auth'];
+        $menus = $validatedData['menu'];
+
         DB::beginTransaction();
         try {
             foreach ($roles as $role) {
-                $role_auth = [];
-                // $role_menu = [];
+                 $role_auth = [];
+                 $role_menu = [];
                 foreach ($auths as $auth) {
                     $role_auth[] = [
                         'role_id' => $role,
@@ -118,6 +153,13 @@ class RoleController extends BaseController
                         'state' => 1
                     ];
                 }
+                foreach ($menus as $menu) {
+                    $role_menu[] =['role_id'=>$role, 'menu_id'=>$menu];
+                }
+
+                RoleAndMenu::query()->where('role_id',$role)->delete();
+                RoleAndMenu::query()->insert($role_menu);
+
                 RoleAndAuth::query()->where('role_id', $role)->delete();
                 RoleAndAuth::query()->insert($role_auth);
             }
@@ -125,9 +167,9 @@ class RoleController extends BaseController
         } catch (\Exception $exception) {
             $msg = $exception->getMessage();
             DB::rollBack();
-            return $this->returnMsg(false);
+            return $this->Json(StatusCode::ERROR, ['msg'=>$msg]);
         }
-        return $this->returnMsg(true);
+        return $this->Json(StatusCode::SUCCESS);
     }
 
     /**
@@ -144,12 +186,11 @@ class RoleController extends BaseController
             ->select('auth_id', 'extented', 'page')
             ->get();
         $menu = $auth->map(function ($value) {
-            Log::channel('record')->info($value->toArray());
             $result = [];
             $result['page'] = '/' . $value->page;
             $result['menu_id'] = $value->auth[0]->menu_id;
             return $result;
         });
-        return $this->returnData(['menu' => $menu, 'auth' => $auth]);
+        return $this->Json(StatusCode::SUCCESS, ['menu' => $menu, 'auth' => $auth]);
     }
 }

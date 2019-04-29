@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Article;
 
-use App\Http\Controllers\Base\BaseController;
+use App\Http\Controllers\Base\StatusCode;
+use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Traits\Filter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,22 +20,23 @@ use Illuminate\Support\Facades\Auth;
  * @license  四川猪太帅科技公司 http://www.51zts.com
  * @link     接口文档链接
  */
-class RecoveryController extends BaseController
+class RecoveryController extends Controller
 {
+    use Filter;
+
     /**
      * 获得被软删除的文章
      *
-     * @param \Illuminate\Http\Request $request
-     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getList(Request $request)
+    public function index()
     {
         $query = Article::onlyTrashed();
         if (isSuperManager()) {
             $query = $query->where('user_id', Auth::id());
         }
-        return $this->filter($query, $request);
+        $data =  $this->filter($query);
+        return $this->Json(StatusCode::SUCCESS, $data);
     }
 
     /**
@@ -45,8 +48,8 @@ class RecoveryController extends BaseController
      */
     public function recoveryArticle($id)
     {
-        $article = Article::withTrashed()->where('id', $id)->restore();
-        return $this->returnMsg($article);
+        Article::withTrashed()->where('id', $id)->restore();
+        return $this->Json(StatusCode::SUCCESS);
     }
 
     /**
@@ -56,9 +59,9 @@ class RecoveryController extends BaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        $article = Article::withTrashed()->where('id', $id)->forceDelete();
-        return $this->returnMsg($article);
+        Article::withTrashed()->where('id', $id)->forceDelete();
+        return $this->Json(StatusCode::SUCCESS);
     }
 }

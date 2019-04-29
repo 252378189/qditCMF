@@ -47,7 +47,7 @@
         data() {
             return {
                 page_name: '文章',
-                url: 'article/list',
+                url: 'article',
                 addFormVisible: false,
                 editFormVisible: false,
                 articleURL: false,
@@ -243,10 +243,6 @@
                         type: 'danger',
                         icon: 'el-icon-delete',
                     },
-                    url: {
-                        type: 'success',
-                        icon: 'el-icon-share',
-                    }
                 };
                 let result = {};
                 this.$store.state.user.auth.article_list.forEach(item => {

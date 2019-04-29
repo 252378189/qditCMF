@@ -1818,7 +1818,7 @@ var data = {
     /**
      * @description 性别
      */
-    sex: [{ key: 1, value: '男' }, { key: 2, value: '女' }, { key: 0, value: '未填写' }],
+    sex: [{ key: 1, value: '男' }, { key: 0, value: '女' }],
     /**
      * @description 用户类型
      */
@@ -2065,7 +2065,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             page_name: '用户',
-            url: 'user/list',
+            url: 'user',
             addFormVisible: false,
             editFormVisible: false,
             userGiveRoleVisible: false,

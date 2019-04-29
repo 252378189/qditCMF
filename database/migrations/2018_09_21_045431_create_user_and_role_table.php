@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFunsTable extends Migration
+class CreateUserAndRoleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateFunsTable extends Migration
      */
     public function up()
     {
-        Schema::create('funs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title')->comment('功能介绍标题');
-            $table->string('desc')->comment('功能介绍描述');
-            $table->text('photos')->comment('功能介绍图片');
+        Schema::create('user_and_role', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('role_id')->unsigned()->comment('角色ID');
+            $table->integer('user_id')->unsigned()->comment('后台用户id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateFunsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('funs');
+        Schema::dropIfExists('user_and_role');
     }
 }

@@ -1600,7 +1600,7 @@ var data = {
     /**
      * @description 性别
      */
-    sex: [{ key: 1, value: '男' }, { key: 2, value: '女' }, { key: 0, value: '未填写' }],
+    sex: [{ key: 1, value: '男' }, { key: 0, value: '女' }],
     /**
      * @description 用户类型
      */
@@ -1880,7 +1880,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             page_name: '角色',
-            url: '/role/list',
+            url: '/role',
             addFormVisible: false,
             editFormVisible: false,
             GiveAuthFormVisible: false,
@@ -3245,7 +3245,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _iteratorError = undefined;
 
             try {
-                for (var _iterator = response.data.data.menu[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (var _iterator = response.data.menu[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                     var x = _step.value;
 
                     data.push('menu' + x.menu_id);
@@ -3270,10 +3270,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _iteratorError2 = undefined;
 
             try {
-                for (var _iterator2 = response.data.data.auth[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                for (var _iterator2 = response.data.auth[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                     var _x = _step2.value;
 
-                    console.log(response.data.data.auth, 456);
                     data.push('auth' + _x.auth_id);
                     //这里传入角色拥有的权限做默认会显
                     _this.selectValue[_x.auth_id] = _x.extented;
@@ -3299,6 +3298,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
     },
     methods: {
+
         /**
          * 组装菜单与权限树形结构
          * @param data 源数据
