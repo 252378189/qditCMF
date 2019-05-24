@@ -11,9 +11,6 @@
 
 ##### 安装后台前端页面依赖
 `npm install`
-                          
-##### 可选命令, 重新编译生成后台页面
-`npm run prod`
 
 ##### 复制一份新的环境配置文件
 `copy .env.example .env`
