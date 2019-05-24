@@ -5,125 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bc3b52d-9f7d-4a6b-87c2-a897d28b1967" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/@" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/FastTruncationTable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Base/StatusCode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/RoleAndMenu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Traits/Filter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Traits/RestFul.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cross-env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_08_27_071042_create_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_08_28_060312_create_roles_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_08_28_060732_create_authorities_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_09_21_045401_create_role_and_auth_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_11_26_032618_create_html_templates_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_11_27_023838_create_config_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_19_114858_create_role_and_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ArticleTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/AuthTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/CategoryTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ConfigTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/FriendLinkTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/HtmlTemplateTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/MenuTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/NavTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/RoleAndAuthTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/RoleAndMenuTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/RoleTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/SEOTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/UserAndRoleTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk0.5181adf9d36d33ee612b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk1.13e48186b0357cf5ac68.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk10.044e7cf27eacb8ecfc8b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk11.a03f067e9d80ea554e40.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk12.67bd353f535369320947.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk13.3e0a7b7a0d8e3240a1c0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk17.745e864aec904f161f44.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk18.c699ffd1755d34f0a542.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk2.e3d24b931e6015672c6c.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk3.ed9fda7c92a72c08521b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk4.94aae7fab30788a17cfb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk5.f94962b61822e75464b1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk6.d968c05964411f1b61ea.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk7.722957fcad0f770921bb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk8.70755ea0cc34403a6dcc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chunk/chunk9.a493b674853c66debfd8.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Article/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Article/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Article/ArticleTemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Article/ArticleTemplate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Article/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Article/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Article/RecoveryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Article/RecoveryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RBAC/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RBAC/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RBAC/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RBAC/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/ConfigController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/ConfigController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/FriendLinkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/FriendLinkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/MenuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/NavController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/NavController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/SEOController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/SEOController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/UploadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/System/UploadController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/User/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/User/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/User/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Base/BaseController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Base/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Base/HomeBaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/ArticleController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/PublicController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Contact.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Fun.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Login/Contract/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Login/Contract/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_12_06_011225_create_contacts_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_04_01_015018_create_funs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_09_21_045431_create_user_and_role_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk0.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk1.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk10.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk10.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk11.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk11.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk12.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk12.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk13.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk13.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk17.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk17.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk18.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk18.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk3.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk4.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk5.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk6.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk6.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk7.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk7.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk8.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk8.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chunk/chunk9.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chunk/chunk9.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/UEditor/php/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/UEditor/php/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/api/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/api/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/api/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/api/article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/api/system.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/api/system.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/api/web_site.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/api/web_site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/config/sys_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/config/sys_config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/module/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/module/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/article/ArticleTemplate/template.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/article/ArticleTemplate/template.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/article/article.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/article/article.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/article/recovery.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/article/recovery.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/rbac/auth/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/rbac/auth/add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/rbac/auth/auth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/rbac/auth/auth.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/rbac/auth/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/rbac/auth/edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/rbac/role/edit_role_auth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/rbac/role/edit_role_auth.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/rbac/role/role.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/rbac/role/role.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/system/menu/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/system/menu/edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/system/menu/menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/system/menu/menu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/view/user/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/view/user/user.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/article.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/system.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/user.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -179,10 +61,11 @@
     <session id="1045166400">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -216,7 +99,7 @@
           <entry key="js" value="19" />
           <entry key="json" value="2" />
           <entry key="md" value="3" />
-          <entry key="php" value="150" />
+          <entry key="php" value="156" />
           <entry key="vue" value="17" />
         </counts>
       </usages-collector>
@@ -227,7 +110,7 @@
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="19" />
           <entry key="Markdown" value="3" />
-          <entry key="PHP" value="149" />
+          <entry key="PHP" value="155" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Vue.js" value="17" />
         </counts>
@@ -236,14 +119,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/FastTruncationTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1134">
+              <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+              <folding>
+                <element signature="e#40#71#0#PHP" expanded="true" />
+                <element signature="e#850#1276#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1458">
+              <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+              <folding>
+                <element signature="e#2005#2030#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1215">
-                <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Article/ArticleController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="173" column="5" selection-start-line="173" selection-start-column="5" selection-end-line="191" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -430,14 +335,16 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1047" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -454,25 +361,24 @@
               <item name="qditCMF" type="b2602c69:ProjectViewProjectNode" />
               <item name="qditCMF" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Console" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="qditCMF" type="b2602c69:ProjectViewProjectNode" />
               <item name="qditCMF" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Console" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OA" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -513,17 +419,20 @@
       <workItem from="1554106769118" duration="1016000" />
       <workItem from="1554108044451" duration="73000" />
       <workItem from="1556420833481" duration="18927000" />
-      <workItem from="1556499808225" duration="6829000" />
+      <workItem from="1556499808225" duration="7677000" />
+      <workItem from="1556517999237" duration="203000" />
+      <workItem from="1556518281002" duration="14000" />
+      <workItem from="1556603617882" duration="8000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27236000" />
+    <option name="totallyTimeSpent" value="28309000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35607675" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3672708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -552,23 +461,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/api/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="163" column="20" selection-start-line="163" selection-start-column="20" selection-end-line="163" selection-end-column="20" />
-          <folding>
-            <element signature="e#106#214#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/System/UploadController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-136">
           <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-          <folding>
-            <element signature="e#53#98#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -597,16 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1458">
-          <caret line="54" column="7" lean-forward="true" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
-          <folding>
-            <element signature="e#2005#2030#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,9 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding>
-            <element signature="e#84#153#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,49 +705,12 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_19_114858_create_role_and_menus_table.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Contact.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Fun.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-426" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding>
-            <element signature="e#31#76#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/ConfigTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
-          <folding>
-            <element signature="e#85#154#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Contact.php" />
+    <entry file="file://$PROJECT_DIR$/app/Models/Fun.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2018_11_27_023838_create_config_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/FastTruncationTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-          <folding>
-            <element signature="e#40#71#0#PHP" expanded="true" />
-            <element signature="e#850#1276#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -878,15 +724,29 @@
         <state relative-caret-position="-1534" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Article/ArticleController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Article/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/ConfigModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2074">
-          <caret line="91" column="7" selection-start-line="91" selection-start-column="7" selection-end-line="91" selection-end-column="7" />
+        <state relative-caret-position="-432">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Article/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/database/seeds/ConfigTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="40" column="22" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="22" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -895,6 +755,34 @@
             <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/FastTruncationTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+          <folding>
+            <element signature="e#40#71#0#PHP" expanded="true" />
+            <element signature="e#850#1276#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1458">
+          <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+          <folding>
+            <element signature="e#2005#2030#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Article/ArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="173" column="5" selection-start-line="173" selection-start-column="5" selection-end-line="191" selection-end-column="48" />
         </state>
       </provider>
     </entry>
